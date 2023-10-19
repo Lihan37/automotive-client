@@ -8,9 +8,11 @@ const NavBar = () => {
     const navLinks = <>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/addProduct'>Add Product</NavLink></li>
+        <li><NavLink to='/myCart'>My Cart</NavLink></li>
+
     </>
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-gray-100 mb-10">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
