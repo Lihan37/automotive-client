@@ -1,0 +1,26 @@
+[
+    {
+      "brand": "Audi",
+      "img": "https://i.ibb.co/302tZS2/audi-car-logo.png"
+    },
+    {
+      "brand": "Toyota",
+      "img": "https://i.ibb.co/LRd8Tmg/pngwing-com-2.png"
+    },
+    {
+      "brand": "BMW",
+      "img": "https://i.ibb.co/yNcbdWr/pngwing-com-3.png"
+    },
+    {
+      "brand": "Mercedes-Benz",
+      "img": "https://i.ibb.co/r5HDMT3/pngwing-com-4.png"
+    },
+    {
+      "brand": "Ford",
+      "img": "https://i.ibb.co/WxVDmmm/pngwing-com-5.png"
+    },
+    {
+      "brand": "Honda",
+      "img": "https://i.ibb.co/xLZb4hy/pngwing-com-6.png"
+    }
+  ]
