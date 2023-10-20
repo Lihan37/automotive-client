@@ -1,5 +1,7 @@
 import React from 'react';
 import NavBar from '../../shared/NavBar/NavBar';
+import Swal from 'sweetalert2'
+
 
 const AddProduct = () => {
 
@@ -18,7 +20,26 @@ const AddProduct = () => {
 
         const newCar ={ name, brandname, price, image, cartype, rating, shortdes}
         console.log(newCar);
-        
+
+        fetch('http://localhost:5000/cars',{
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newCar)
+        })
+        .then(res => res.json())
+        .then(data =>{
+            console.log(data);
+            if(data.insertedId){
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Car added successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                  })
+            }
+        })
     }
     return (
         <div>
