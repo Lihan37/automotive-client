@@ -19,6 +19,32 @@ const MyCart = () => {
             .catch((error) => {
                 console.error('Fetch error:', error);
             });
+
+        
+        const handleLogout = () => {
+            
+            fetch('http://localhost:5000/clearCart', {
+                method: 'POST',
+            })
+                .then((response) => {
+                    if (response.ok) {
+                        setCartItems([]); 
+                    } else {
+                        console.error('Failed to clear cart:', response.status);
+                    }
+                })
+                .catch((error) => {
+                    console.error('Fetch error:', error);
+                });
+        };
+
+        
+        document.addEventListener('logout', handleLogout);
+
+        
+        return () => {
+            document.removeEventListener('logout', handleLogout);
+        };
     }, []);
 
     const removeItem = (index, itemId) => {

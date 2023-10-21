@@ -6,6 +6,11 @@ import MyCart from "../Home/MyCart/MyCart";
 import BrandPage from "../Home/BrandNames/BrandPage";
 import ProductDetails from "../Home/ProductDetails.jsx/ProductDetails";
 import UpdateCars from "../Home/UpdateCars/UpdateCars";
+import Register from "../Home/SignUp/Register";
+import Login from "../Home/SignUp/Login";
+import PrivateRoute from "./PrivateRoute";
+
+
 
 
 
@@ -24,11 +29,11 @@ const router = createBrowserRouter([
             },
             {
                 path: '/addProduct',
-                element: <AddProduct></AddProduct>
+                element: <PrivateRoute><AddProduct></AddProduct></PrivateRoute>
             },
             {
                 path: '/myCart',
-                element: <MyCart></MyCart>
+                element: <PrivateRoute><MyCart></MyCart></PrivateRoute>
             },
             {
                 path: '/brand/:brandName',
@@ -40,13 +45,21 @@ const router = createBrowserRouter([
             },
             {
                 path: '/cars/:id',
-                element: <ProductDetails></ProductDetails>,
+                element: <PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/cars?${params.id}`)
             },
             {
                 path: '/updateCars/:id',
                 element: <UpdateCars></UpdateCars>,
                 loader: ({ params }) => fetch(`http://localhost:5000/cars/${params.id}`).then((response) => response.json()),
+            },
+            {
+                path: '/register',
+                element: <Register></Register>
+            },
+            {
+                path:'/login',
+                element: <Login></Login>
             }
             
 
