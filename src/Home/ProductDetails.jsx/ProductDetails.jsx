@@ -4,7 +4,7 @@ import cover1 from '../../assets/Rent-A-Car-Facebook-Cover-01.jpg'
 import cover2 from '../../assets/Rent-A-Car-Facebook-Cover-27.jpg'
 import cover3 from '../../assets//Rent-A-Car-Web-Banner-20.jpg'
 import Swal from 'sweetalert2'
-import { data } from 'autoprefixer';
+
 
 const ProductDetails = () => {
     const [car, setCar] = useState(null);
