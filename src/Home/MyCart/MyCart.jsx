@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from '../../shared/NavBar/NavBar';
+import Swal from 'sweetalert2';
 
 const MyCart = () => {
     const [cartItems, setCartItems] = useState([]);
@@ -21,21 +22,33 @@ const MyCart = () => {
     }, []);
 
     const removeItem = (index, itemId) => {
-        fetch(`http://localhost:5000/cart/${itemId}`, {
-            method: 'DELETE',
-        })
-            .then((response) => {
-                if (response.ok) {
-                    const updatedCart = [...cartItems];
-                    updatedCart.splice(index, 1);
-                    setCartItems(updatedCart);
-                } else {
-                    console.error('Failed to delete item:', response.status);
-                }
-            })
-            .catch((error) => {
-                console.error('Fetch error:', error);
-            });
+        Swal.fire({
+            title: 'Are you sure?',
+            text: 'You will not be able to recover this item from your cart!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Yes, delete it!',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/cart/${itemId}`, {
+                    method: 'DELETE',
+                })
+                    .then((response) => {
+                        if (response.ok) {
+                            const updatedCart = [...cartItems];
+                            updatedCart.splice(index, 1);
+                            setCartItems(updatedCart);
+                        } else {
+                            console.error('Failed to delete item:', response.status);
+                        }
+                    })
+                    .catch((error) => {
+                        console.error('Fetch error:', error);
+                    });
+            }
+        });
     };
 
     return (
@@ -72,4 +85,4 @@ const MyCart = () => {
     );
 };
 
-export default MyCart; // Move the 'export default' to the end of the component
+export default MyCart;

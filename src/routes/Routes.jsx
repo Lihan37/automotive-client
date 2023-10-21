@@ -5,6 +5,7 @@ import AddProduct from "../Home/AddProduct/AddProduct";
 import MyCart from "../Home/MyCart/MyCart";
 import BrandPage from "../Home/BrandNames/BrandPage";
 import ProductDetails from "../Home/ProductDetails.jsx/ProductDetails";
+import UpdateCars from "../Home/UpdateCars/UpdateCars";
 
 
 
@@ -40,8 +41,16 @@ const router = createBrowserRouter([
             {
                 path: '/cars/:id',
                 element: <ProductDetails></ProductDetails>,
-                loader: ({params})=> fetch(`http://localhost:5000/cars?${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/cars?${params.id}`)
+            },
+            {
+                path: '/updateCars/:id',
+                element: <UpdateCars></UpdateCars>,
+                loader: ({ params }) => fetch(`http://localhost:5000/cars/${params.id}`).then((response) => response.json()),
             }
+            
+
+
 
         ]
     }

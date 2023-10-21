@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const CarCard = ({ car }) => {
+
+  const {  name, brandname, price, cartype, shortdes, _id } = car;
   const rating = Math.floor(car.rating);
   const stars = [];
 
@@ -37,7 +39,9 @@ const CarCard = ({ car }) => {
           </Link>
 
 
+          <Link to={`/updateCars/${_id}`}>
           <button className="btn btn-accent">Update</button>
+          </Link>
         </div>
       </div>
     </div>
