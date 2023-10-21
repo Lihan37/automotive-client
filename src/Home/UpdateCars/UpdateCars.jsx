@@ -27,7 +27,7 @@ const UpdateCars = () => {
         const updatedCar ={ name, brandname, price, image, cartype, rating, shortdes}
         console.log(updatedCar);
 
-        fetch(`http://localhost:5000/cars/${_id}`,{
+        fetch(`https://automotive-server-mjdyasf4i-lihan37s-projects.vercel.app/cars/${_id}`,{
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

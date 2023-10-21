@@ -6,7 +6,7 @@ const MyCart = () => {
     const [cartItems, setCartItems] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/addToCart')
+        fetch('https://automotive-server-mjdyasf4i-lihan37s-projects.vercel.app/addToCart')
             .then((response) => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
@@ -20,15 +20,15 @@ const MyCart = () => {
                 console.error('Fetch error:', error);
             });
 
-        
+
         const handleLogout = () => {
-            
-            fetch('http://localhost:5000/clearCart', {
+
+            fetch('https://automotive-server-mjdyasf4i-lihan37s-projects.vercel.app/clearCart', {
                 method: 'POST',
             })
                 .then((response) => {
                     if (response.ok) {
-                        setCartItems([]); 
+                        setCartItems([]);
                     } else {
                         console.error('Failed to clear cart:', response.status);
                     }
@@ -38,10 +38,10 @@ const MyCart = () => {
                 });
         };
 
-        
+
         document.addEventListener('logout', handleLogout);
 
-        
+
         return () => {
             document.removeEventListener('logout', handleLogout);
         };
@@ -58,7 +58,7 @@ const MyCart = () => {
             confirmButtonText: 'Yes, delete it!',
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/cart/${itemId}`, {
+                fetch(`https://automotive-server-mjdyasf4i-lihan37s-projects.vercel.app/cart/${itemId}`, {
                     method: 'DELETE',
                 })
                     .then((response) => {

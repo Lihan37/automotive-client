@@ -14,7 +14,7 @@ const ProductDetails = () => {
 
     useEffect(() => {
 
-        fetch(`http://localhost:5000/cars/${carId}`)
+        fetch(`https://automotive-server-mjdyasf4i-lihan37s-projects.vercel.app/cars/${carId}`)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
@@ -40,7 +40,7 @@ const ProductDetails = () => {
             price: car.price,  
           };
           
-        fetch('http://localhost:5000/addToCart', {
+        fetch('https://automotive-server-mjdyasf4i-lihan37s-projects.vercel.app/addToCart', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

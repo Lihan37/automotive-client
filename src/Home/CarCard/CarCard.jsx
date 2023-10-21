@@ -8,7 +8,7 @@ const CarCard = ({ car }) => {
   const stars = [];
 
   for (let i = 1; i <= 5; i++) {
-    const starClass = i <= rating ? 'bg-orange-400' : ''; // Apply the star color based on the rating
+    const starClass = i <= rating ? 'bg-orange-400' : ''; 
     stars.push(
       <input
         key={i}

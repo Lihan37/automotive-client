@@ -25,7 +25,7 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/cars')
+                loader: () => fetch('https://automotive-server-mjdyasf4i-lihan37s-projects.vercel.app/cars')
             },
             {
                 path: '/addProduct',
@@ -40,18 +40,18 @@ const router = createBrowserRouter([
                 element: <BrandPage />,
                 loader: (params) => {
                     const { brandName } = params;
-                    return fetch(`http://localhost:5000/cars?brandname=${brandName}`).then(response => response.json());
+                    return fetch(`https://automotive-server-mjdyasf4i-lihan37s-projects.vercel.app/cars/?brandname=${brandName}`).then(response => response.json());
                 }
             },
             {
                 path: '/cars/:id',
                 element: <PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/cars?${params.id}`)
+                loader: ({ params }) => fetch(`https://automotive-server-mjdyasf4i-lihan37s-projects.vercel.app/cars?${params.id}`)
             },
             {
                 path: '/updateCars/:id',
                 element: <UpdateCars></UpdateCars>,
-                loader: ({ params }) => fetch(`http://localhost:5000/cars/${params.id}`).then((response) => response.json()),
+                loader: ({ params }) => fetch(`https://automotive-server-mjdyasf4i-lihan37s-projects.vercel.app/cars/${params.id}`).then((response) => response.json()),
             },
             {
                 path: '/register',
